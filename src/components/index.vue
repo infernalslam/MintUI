@@ -5,7 +5,7 @@
 export default {
   data () {
     return {
-      msg: 'Run Together'
+      msg: 'index page'
     }
   }
 }
