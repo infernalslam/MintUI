@@ -5,7 +5,7 @@
 export default {
   data () {
     return {
-      msg: 'Index page'
+      msg: 'Check page'
     }
   }
 }

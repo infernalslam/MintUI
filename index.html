@@ -10,7 +10,6 @@
   <body>
     <div id="app">
       <div class="ui container">
-           <!-- <a v-link="{ path: '/' }"><i></i> Home</a> -->
            <div class="ui secondary  menu">
               <a class="active item" v-link="{ path: '/' }">
                 หน้าเเรก
@@ -22,14 +21,12 @@
                 ตรวจสอบสถานะ
               </a>
               <div class="right menu">
-                <a class="ui item">
+                <a class="ui item" v-link="{ path: '/' }">
                   Logout
                 </a>
               </div>
             </div>
          </div>
-
-
          <!-- view -->
         <div class="ui container">
          <router-view></router-view>
