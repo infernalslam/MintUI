@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 // import Mint from 'mint-ui'
 import Index from './components/index'
 import Register from './components/register'
-import Check from './components/check'
 import Disable from './components/disable'
 // Vue.use(Mint)
 Vue.use(VueRouter)
@@ -16,9 +15,6 @@ router.map({
   },
   '/register': {
     component: Register
-  },
-  '/check': {
-    component: Check
   },
   '/disable': {
     component: Disable
