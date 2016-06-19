@@ -4,35 +4,14 @@
     <meta charset="utf-8">
     <title>Runtogether</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="./static/semantic/src/semantic.min.css">
-    <script src="./static/semantic/src/semantic.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="./static/semantic.min.css">
+    <script src="./static/semantic.min.js"></script>
   </head>
   <body>
-    <div id="app">
-      <div class="ui container">
-           <div class="ui secondary  menu">
-              <a class="active item" v-link="{ path: '/' }">
-                หน้าเเรก
-              </a>
-              <a class="item" v-link="{ path: '/register' }">
-                สมัครสมาชิก
-              </a>
-              <a class="item" v-link="{ path: '/check' }">
-                ตรวจสอบสถานะ
-              </a>
-              <div class="right menu">
-                <a class="ui item" v-link="{ path: '/' }">
-                  Logout
-                </a>
-              </div>
-            </div>
-         </div>
-         <!-- view -->
-        <div class="ui container">
-         <router-view></router-view>
-       </div>
+     <div id="app">
+       <div class="ui container">
+        <router-view></router-view>
+      </div>
      </div>
   </body>
 </html>

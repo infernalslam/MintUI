@@ -1,15 +1,15 @@
 <template>
-  {{msg}} <br>
-  <a class="active item" v-link="{ path: '/Disable' }">คนพิการ</a>
-  <a class="item" v-link="{ path: '/Runner' }">อาสาสมัคร</a>
+    <index></index>
 </template>
 <script>
-// import Field from 'mint-ui'
-// import 'mint-ui/lib/cell/style.css'
+import Index from './index.vue'
 export default {
+  components: {
+    Index
+  },
   data () {
     return {
-      msg: 'สมัครสมาชิก'
+      msg: 'Register page'
     }
   }
 }

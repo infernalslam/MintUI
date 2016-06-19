@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Index from './components/index'
 import Register from './components/register'
 import Check from './components/check'
+import Disable from './components/disable'
 // Vue.use(Mint)
 Vue.use(VueRouter)
 Vue.use(require('vue-resource'))
@@ -18,6 +19,9 @@ router.map({
   },
   '/check': {
     component: Check
+  },
+  '/disable': {
+    component: Disable
   }
 })
 router.start(App, '#app')
