@@ -1,23 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Mint from 'mint-ui'
-import Index from './components/index'
-import Register from './components/register'
-import Disable from './components/disable'
-// Vue.use(Mint)
+var VueResource = require('vue-resource')
+import Show from './components/show'
+import Insert from './components/insert'
+import Disabled from './components/disabled'
+import Runner from './components/runner'
 Vue.use(VueRouter)
-Vue.use(require('vue-resource'))
+Vue.use(VueResource)
 var App = Vue.extend({})
 var router = new VueRouter()
 router.map({
   '/': {
-    component: Index
+    component: Show
   },
-  '/register': {
-    component: Register
+  '/insert': {
+    component: Insert
   },
-  '/disable': {
-    component: Disable
+  '/disabled': {
+    component: Disabled
+  },
+  '/runner': {
+    component: Runner
   }
 })
 router.start(App, '#app')
