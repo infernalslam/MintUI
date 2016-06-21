@@ -4,7 +4,7 @@
   <div class="ui container">
     <form class="ui form">
       <div class="field">
-        <label>type</label>
+        <label>gender</label>
         <select class="ui fluid dropdown" v-model="input.gender">
           <option value="m">male</option>
           <option value="f">female</option>
@@ -23,14 +23,22 @@
         <input type="number"placeholder="Age" v-model="input.age">
       </div>
       <div class="field">
-        <div class="ui checkbox">
-          <input type="checkbox" tabindex="0" class="hidden">
-          <label>ยืนยันข้อมูล</label>
-        </div>
+        <label>tel</label>
+        <input type="text"placeholder="tel" v-model="input.tel">
+      </div>
+      <div class="field">
+        <label>distance_runner</label>
+        <input type="number"placeholder="distance_runner" v-model="input.distance_runner">
+      </div>
+        <div class="ui form">
+          <div class="field">
+            <label>description</label>
+            <textarea v-model="input.description"></textarea>
+          </div>
+      <div class="field">
       </div>
       <button class="ui button" type="submit" v-on:click="add(input)">Submit</button>
     </form>
-  </div>
 </template>
 
 <script>
@@ -46,15 +54,27 @@ export default {
   attached: function () {},
   methods: {
     add: function (input) {
-      console.log(input)
+      // var setData = {
+      //   name: input.name,
+      //   surname: input.surname,
+      //   age: input.age,
+      //   gender: input.gender,
+      //   type: 'normal'
+      // }
+      // this.$http.post('http://192.168.2.130:10000/users', setData).then(function (res) {
+      //   console.log(res)
+      // })
       var setData = {
         name: input.name,
         surname: input.surname,
         age: input.age,
-        gender: input.gender,
-        type: 'disabled'
+        tel: input.tel,
+        distance_runner: input.distance_runner,
+        description: input.description,
+        date: input.date,
+        type: 'disable'
       }
-      this.$http.post('http://192.168.2.130:10000/users', setData).then(function (res) {
+      this.$http.post('http://localhost:5000/api/disable', setData).then(function (res) {
         console.log(res)
       })
     }

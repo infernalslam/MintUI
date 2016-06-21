@@ -4,6 +4,7 @@
   <div class="field">
     <button class="ui green basic button">หาคู่(คนพิการ)</button>
     <button class="ui blue basic button">หาคู่(อาสาสมัคร)</button>
+    <button class="ui violet basic button">จับคู่(match)</button>
   </div>
 </div>
 </template>
