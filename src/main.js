@@ -5,7 +5,10 @@ import Show from './components/show'
 import Insert from './components/insert'
 import Disabled from './components/disabled'
 import Runner from './components/runner'
-import Match from './components/match'
+import Runmatch from './components/runmatch'
+import Dismatch from './components/dismatch'
+import Matching from './components/matching'
+import Error from './components/error'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 var App = Vue.extend({})
@@ -23,8 +26,17 @@ router.map({
   '/runner': {
     component: Runner
   },
-  '/match': {
-    component: Match
+  '/dismatch': {
+    component: Dismatch
+  },
+  '/runmatch': {
+    component: Runmatch
+  },
+  '/matching': {
+    component: Matching
+  },
+  '*': {
+    component: Error
   }
 })
 router.start(App, '#app')

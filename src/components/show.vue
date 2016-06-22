@@ -50,7 +50,7 @@
       <td>{{show.distance_runner}}</th>
       <td>{{show.description}}</td>
       <td>{{show.type}}</td>
-      <td><i class="trash outline icon" v-on:click="del(show.id, $index)"></i></td>
+      <td><i class="trash outline icon" v-on:click="del(show._id, $index)"></i></td>
     </tr></thead>
 </table>
 </template>
@@ -67,7 +67,7 @@ export default {
     // this.$http.get('http://192.168.2.130:10000/users').then(function (res) {
     //   this.data = res.data
     // })
-    this.$http.get('http://192.168.1.38:5000/api/disable').then(function (res) {
+    this.$http.get('http://localhost:5000/api/disable').then(function (res) {
       this.data = res.data
       console.log('load get data')
     })
@@ -76,14 +76,14 @@ export default {
   methods: {
     del: function (id, index) {
       console.log(id, index)
-      this.$http.delete('http://192.168.1.38:5000/api/disable/' + id).then(function (res) {
+      this.$http.delete('http://localhost:5000/api/disable/' + id).then(function (res) {
         console.log(res)
         this.data.splice(index, 1)
         this.get()
       })
     },
     get: function () {
-      this.$http.get('http://192.168.1.38:5000/api/disable').then(function (res) {
+      this.$http.get('http://localhost:5000/api/disable').then(function (res) {
         this.data = res.data
       })
     }

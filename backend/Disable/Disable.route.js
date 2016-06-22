@@ -35,4 +35,24 @@ router.delete('/:id', function (req, res, next) {
     })
   })
 })
+// query disabled
+router.get('/querydis', function (req, res, next) {
+  Model.find({type: 'disable'}).exec(function (err, results) {
+    if (err) {
+      res.status(500).send(err)
+    } else {
+      res.send(results)
+    }
+  })
+})
+// query ruuner
+router.get('/queryrun', function (req, res, next) {
+  Model.find({type: 'runner'}).exec(function (err, results) {
+    if (err) {
+      res.status(500).send(err)
+    } else {
+      res.send(results)
+    }
+  })
+})
 module.exports = router
