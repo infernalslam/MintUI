@@ -67,7 +67,10 @@ export default {
     this.$http.get('http://localhost:5000/api/disable/querydis').then(function (res) {
       this.querydis = res.data
     })
-    this.$http.get('http://localhost:5000/api/disable/queryrun').then(function (res) {
+    // this.$http.get('http://localhost:5000/api/disable/queryrun').then(function (res) {
+    //   this.queryrun = res.data
+    // })
+    this.$http.get('http://localhost:5000/api/runner').then(function (res) {
       this.queryrun = res.data
     })
   },

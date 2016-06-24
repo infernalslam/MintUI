@@ -6,8 +6,8 @@
       <div class="field">
         <label>gender</label>
         <select class="ui fluid dropdown" v-model="input.gender">
-          <option value="m">male</option>
-          <option value="f">female</option>
+          <option value="ชาย">male</option>
+          <option value="หญิง">female</option>
         </select>
       </div>
       <div class="field">
@@ -54,17 +54,8 @@ export default {
   attached: function () {},
   methods: {
     add: function (input) {
-      // var setData = {
-      //   name: input.name,
-      //   surname: input.surname,
-      //   age: input.age,
-      //   gender: input.gender,
-      //   type: 'normal'
-      // }
-      // this.$http.post('http://192.168.2.130:10000/users', setData).then(function (res) {
-      //   console.log(res)
-      // })
       var setData = {
+        gender: input.gender,
         name: input.name,
         surname: input.surname,
         age: input.age,

@@ -64,12 +64,13 @@ export default {
   },
   computed: {},
   ready: function () {
-    // this.$http.get('http://192.168.2.130:10000/users').then(function (res) {
-    //   this.data = res.data
-    // })
     this.$http.get('http://localhost:5000/api/disable').then(function (res) {
       this.data = res.data
       console.log('load get data')
+    })
+    this.$http.get('http://localhost:5000/api/runner').then(function (res) {
+      console.log('load get data')
+      this.data = res.data
     })
   },
   attached: function () {},
@@ -84,6 +85,10 @@ export default {
     },
     get: function () {
       this.$http.get('http://localhost:5000/api/disable').then(function (res) {
+        this.data = res.data
+      })
+      this.$http.get('http://localhost:5000/api/runner').then(function (res) {
+        console.log('load get data')
         this.data = res.data
       })
     }

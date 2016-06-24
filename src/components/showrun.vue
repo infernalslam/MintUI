@@ -34,7 +34,7 @@ export default {
   },
   computed: {},
   ready: function () {
-    this.$http.get('http://localhost:5000/api/disable/queryrun').then(function (res) {
+    this.$http.get('http://localhost:5000/api/Runner').then(function (res) {
       this.data = res.data
       console.log('load getquery')
     })
