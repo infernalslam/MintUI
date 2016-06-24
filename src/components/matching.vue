@@ -1,72 +1,96 @@
 <template lang="html">
   <match></match>
   <br><br>
-  <div class="ui divided items" v-for="show in querydis">
-  <div class="item">
-    <div class="image">
-      <!-- show picture -->
-      <!-- <img src="/images/wireframe/image.png"> -->
-    </div>
-    <div class="content">
-      <a class="header">ชื่อ {{show.name}} {{show.surname}} อายุ {{show.age}}</a>
-      <div class="meta">
-        <span class="cinema">{{show.description}}</span>
+
+  <div class="ui equal width center aligned padded grid">
+    <div class="row">
+      <div class="column">
+        ผู้พิการ
+        <table class="ui green table">
+        <thead>
+          <tr><th>ชื่อนามสกุล</th>
+          <th>ผู้พิการ</th>
+          <th>อายุ</th>
+          <th>ระยะทาง</th>
+        </tr>
+      </thead>
+        <tbody v-for="(key, show) in querydis">
+          <tr v-bind:class="{ 'actives': active1 === $index && test1 }" @click="check1($index)">
+            <td>{{show.name}} {{show.surname}}</td>
+            <td>{{show.description}}</td>
+            <td>{{show.age}}</td>
+            <td>{{show.distance_runner}}</td>
+          </tr>
+        </tbody>
+      </table>
       </div>
-      <div class="description">
-        <p></p>
+      <div class="column">
+        อาสาสมัคร
+        <table class="ui blue table">
+        <thead>
+          <tr><th>ชื่อนามสกุล</th>
+          <th>ผู้พิการ</th>
+          <th>อายุ</th>
+          <th>ระยะทาง</th>
+        </tr>
+      </thead>
+        <tbody v-for="show in queryrun">
+          <tr v-bind:class="{ 'actives': active2 === $index && test2}" @click="check2($index)">
+            <td>{{show.name}} {{show.surname}}</td>
+            <td>{{show.description}}</td>
+            <td>{{show.age}}</td>
+            <td>{{show.distance_runner}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </table>
       </div>
-      <div class="extra">
-        <div class="ui label">{{show.distance_runner}} km.</div>
-      </div>
-    </div>
   </div>
-</div>
-
-
-<!-- <v-modal v-ref:modal>
-  <div class="ui segments">
-    <div class="ui segment">
-      <h3 class="ui header">Modal header</h3>
-    </div>
-    <div class="ui segment content">
-      <p>Content</p>
-    </div>
-    <div class="ui segment">
-      <button class="ui button" @click="$refs.modal.hide">Hide modal</button>
-    </div>
-  </div>
-</v-modal> -->
-
-
 </template>
 
 <script>
 import Match from './match.vue'
-// import $ from 'jquery'
-// $('.ui.basic.modal').modal('show')
 export default {
   data: function () {
     return {
       querydis: [],
-      queryrun: []
+      queryrun: [],
+      active1: '',
+      active2: '',
+      test1: true,
+      test2: true,
+      select: []
     }
   },
   computed: {},
   ready: function () {
     this.$http.get('http://localhost:5000/api/disable/querydis').then(function (res) {
-      console.log(res.data)
       this.querydis = res.data
     })
     this.$http.get('http://localhost:5000/api/disable/queryrun').then(function (res) {
-      console.log(res.data)
       this.queryrun = res.data
     })
   },
   attached: function () {},
   methods: {
-    // model: function () {
-    //   $('.ui.basic.modal').modal('show')
-    // }
+    check1: function (index) {
+      if (this.active1 === index) {
+        this.test1 = !this.test1
+      } else {
+        this.test1 = true
+        // var dataset = {}
+        // this.select.push()
+      }
+      this.active1 = index
+    },
+    check2: function (index) {
+      if (this.active2 === index) {
+        this.test2 = !this.test2
+      } else {
+        this.test2 = true
+      }
+      this.active2 = index
+    }
   },
   components: {
     Match
@@ -75,4 +99,7 @@ export default {
 </script>
 
 <style lang="css">
+.actives {
+  background-color: yellow;
+}
 </style>

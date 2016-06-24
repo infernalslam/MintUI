@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import VueModal from 'vue-modal'
 var VueResource = require('vue-resource')
 import Show from './components/show'
 import Insert from './components/insert'
@@ -10,7 +9,6 @@ import Runmatch from './components/runmatch'
 import Dismatch from './components/dismatch'
 import Matching from './components/matching'
 import Error from './components/error'
-Vue.use(VueModal)
 Vue.use(VueRouter)
 Vue.use(VueResource)
 var App = Vue.extend({})
