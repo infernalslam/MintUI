@@ -72,7 +72,8 @@ export default {
         distance_runner: input.distance_runner,
         description: input.description,
         date: input.date,
-        type: 'disable'
+        type: 'disable',
+        match: 'null'
       }
       this.$http.post('http://localhost:5000/api/disable', setData).then(function (res) {
         console.log(res)

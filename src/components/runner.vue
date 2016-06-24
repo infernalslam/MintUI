@@ -72,9 +72,10 @@ export default {
         distance_runner: input.distance_runner,
         description: input.description,
         date: input.date,
-        type: 'runner'
+        type: 'runner',
+        match: 'null'
       }
-      this.$http.post('http://localhost:5000/api/disable', setData).then(function (res) {
+      this.$http.post('http://localhost:5000/api/Runner', setData).then(function (res) {
         console.log(res)
       })
     }

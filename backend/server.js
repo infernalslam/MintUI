@@ -17,6 +17,11 @@ mongoose.connect('mongodb://localhost:27017/DB_run')
 // require server
 var Disable = require('./Disable/Disable.route.js')
 app.use('/api/Disable', Disable)
+var Runner = require('./Runner/Runner.route.js')
+app.use('api/Runner', Runner)
+var Match = require('./Match/Match.route.js')
+app.use('/api/Match', Match)
+// ////////////////////////////////
 app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'))
 })

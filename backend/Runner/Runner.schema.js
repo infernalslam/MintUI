@@ -1,4 +1,4 @@
-var modelName = 'Diable'
+var modelName = 'Ruuner'
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 var schema = new Schema({
