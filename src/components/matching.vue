@@ -1,5 +1,7 @@
 <template lang="html">
   <match></match>
+  <br>
+  <button class="ui red basic button" @click="" v-show="activeBtnMatch">Matching Name</button>
   <br><br>
 
   <div class="ui equal width center aligned padded grid">
@@ -59,12 +61,15 @@ export default {
       active2: '',
       test1: true,
       test2: true,
-      select: []
+      select: [],
+      activeBtn1: false,
+      activeBtn2: false,
+      activeBtnMatch: false
     }
   },
   computed: {},
   ready: function () {
-    this.$http.get('http://localhost:5000/api/disable/querydis').then(function (res) {
+    this.$http.get('http://localhost:5000/api/disable').then(function (res) {
       this.querydis = res.data
     })
     // this.$http.get('http://localhost:5000/api/disable/queryrun').then(function (res) {
@@ -79,18 +84,34 @@ export default {
     check1: function (index) {
       if (this.active1 === index) {
         this.test1 = !this.test1
-      } else {
+        this.activeBtn1 = false
+      }
+      if (this.active1 !== index) {
         this.test1 = true
-        // var dataset = {}
-        // this.select.push()
+        this.activeBtn1 = true
+      }
+      if (this.activeBtn1 === true && this.activeBtn2 === true) {
+        this.activeBtnMatch = true
+      }
+      if (this.activeBtn1 === false || this.activeBtn2 === false) {
+        this.activeBtnMatch = false
       }
       this.active1 = index
     },
     check2: function (index) {
       if (this.active2 === index) {
         this.test2 = !this.test2
-      } else {
+        this.activeBtn2 = false
+      }
+      if (this.active2 !== index) {
         this.test2 = true
+        this.activeBtn2 = true
+      }
+      if (this.activeBtn1 === true && this.activeBtn2 === true) {
+        this.activeBtnMatch = true
+      }
+      if (this.activeBtn1 === false || this.activeBtn2 === false) {
+        this.activeBtnMatch = false
       }
       this.active2 = index
     }
@@ -104,5 +125,8 @@ export default {
 <style lang="css">
 .actives {
   background-color: yellow;
+}
+.disable {
+
 }
 </style>
