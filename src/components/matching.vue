@@ -83,35 +83,23 @@ export default {
   methods: {
     check1: function (index) {
       if (this.active1 === index) {
+        console.log(this.active1)
         this.test1 = !this.test1
-        this.activeBtn1 = false
-      }
-      if (this.active1 !== index) {
-        this.test1 = true
-        this.activeBtn1 = true
-      }
-      if (this.activeBtn1 === true && this.activeBtn2 === true) {
-        this.activeBtnMatch = true
-      }
-      if (this.activeBtn1 === false || this.activeBtn2 === false) {
         this.activeBtnMatch = false
+      } else {
+        console.log('set value')
+        this.test1 = true
+        this.activeBtnMatch = true
       }
       this.active1 = index
     },
     check2: function (index) {
       if (this.active2 === index) {
         this.test2 = !this.test2
-        this.activeBtn2 = false
-      }
-      if (this.active2 !== index) {
+      } else {
+        console.log('set value')
         this.test2 = true
         this.activeBtn2 = true
-      }
-      if (this.activeBtn1 === true && this.activeBtn2 === true) {
-        this.activeBtnMatch = true
-      }
-      if (this.activeBtn1 === false || this.activeBtn2 === false) {
-        this.activeBtnMatch = false
       }
       this.active2 = index
     }
