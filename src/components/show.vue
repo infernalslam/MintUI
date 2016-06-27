@@ -3,18 +3,6 @@
   <table class="ui fixed single line celled table">
     <thead>
       <tr>
-        <!-- <th>mem_id</th>
-        <th>ชื่อ</th>
-        <th>นามสกุล</th>
-        <th>เพศ</th>
-        <th>อายุ</th>
-        <th>เบอร์</th>
-        <th>วันที่สมัคร</th>
-        <th>ระยะทาง</th>
-        <th>รูปภาพ</th>
-        <th>รายละเอียด</th>
-        <th>กลุ่มที่จับ</th>
-        <th>สถานะ</th> -->
         <th>id</th>
         <th>name</th>
         <th>surname</th>
@@ -23,11 +11,14 @@
         <th>dis</th>
         <th>des</th>
         <th>type</th>
-        <th></th>
-
+        <th>pic</th>
+        <th>รายละเอียด</th>
+        <th>group</th>
+        <th>type</th>
+        <th>ลบ</th>
       </tr>
     </thead>
-    <!-- <thead v-for="show in data">
+    <thead v-for="show in data">
       <tr><th>{{show.mem_id}}</th>
       <td>{{show.mem_name}}</td>
       <td>{{show.mem_surname}}</td>
@@ -40,17 +31,7 @@
       <td>{{show.mem_discription}}</td>
       <td>{{show.group_id}}</td>
       <td>{{show.mem_type}}</td>
-    </tr></thead> -->
-    <thead v-for="show in data">
-      <tr><th>{{show._id}}</th>
-      <td>{{show.name}}</td>
-      <td>{{show.surname}}</td>
-      <td>{{show.tel}}</td>
-      <td>{{show.age}}</td>
-      <td>{{show.distance_runner}}</th>
-      <td>{{show.description}}</td>
-      <td>{{show.type}}</td>
-      <td><i class="trash outline icon" v-on:click="del(show._id, $index)"></i></td>
+      <td><i class="trash outline icon" v-on:click="del(show.mem_id, $index)"></i></td>
     </tr></thead>
 </table>
 </template>
@@ -64,12 +45,8 @@ export default {
   },
   computed: {},
   ready: function () {
-    this.$http.get('http://localhost:5000/api/disable').then(function (res) {
-      this.data = res.data
-      console.log('load get data')
-    })
-    this.$http.get('http://localhost:5000/api/runner').then(function (res) {
-      console.log('load get data')
+    this.$http.get('http://192.168.2.130:10000/users').then(function (res) {
+      console.log(res.data)
       this.data = res.data
     })
   },
@@ -77,18 +54,14 @@ export default {
   methods: {
     del: function (id, index) {
       console.log(id, index)
-      this.$http.delete('http://localhost:5000/api/disable/' + id).then(function (res) {
+      this.$http.delete('http://192.168.2.130:10000/users/' + id).then(function (res) {
         console.log(res)
-        this.data.splice(index, 1)
         this.get()
       })
     },
     get: function () {
-      this.$http.get('http://localhost:5000/api/disable').then(function (res) {
-        this.data = res.data
-      })
-      this.$http.get('http://localhost:5000/api/runner').then(function (res) {
-        console.log('load get data')
+      this.$http.get('http://192.168.2.130:10000/users').then(function (res) {
+        console.log(res)
         this.data = res.data
       })
     }
