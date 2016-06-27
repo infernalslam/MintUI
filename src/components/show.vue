@@ -45,7 +45,7 @@ export default {
   },
   computed: {},
   ready: function () {
-    this.$http.get('http://192.168.2.130:10000/users').then(function (res) {
+    this.$http.get('http://192.168.2.130:10000/members').then(function (res) {
       console.log(res.data)
       this.data = res.data
     })
@@ -54,13 +54,13 @@ export default {
   methods: {
     del: function (id, index) {
       console.log(id, index)
-      this.$http.delete('http://192.168.2.130:10000/users/' + id).then(function (res) {
+      this.$http.delete('http://192.168.2.130:10000/members/' + id).then(function (res) {
         console.log(res)
         this.get()
       })
     },
     get: function () {
-      this.$http.get('http://192.168.2.130:10000/users').then(function (res) {
+      this.$http.get('http://192.168.2.130:10000/members').then(function (res) {
         console.log(res)
         this.data = res.data
       })

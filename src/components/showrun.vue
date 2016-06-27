@@ -13,13 +13,14 @@
       </tr>
       <tr>
         <thead v-for="show in data">
-          <tr><th>{{show._id}}</th>
-          <td>{{show.name}}</td>
-          <td>{{show.surname}}</td>
-          <td>{{show.tel}}</td>
-          <td>{{show.age}}</td>
-          <td>{{show.distance_runner}}</th>
-          <td>{{show.description}}</td>
+          <tr>
+            <th>{{show.mem_id}}</th>
+            <td>{{show.mem_name}}</td>
+            <td>{{show.surname}}</td>
+            <td>{{show.mem_tel}}</td>
+            <td>{{show.mem_age}}</td>
+            <td>{{show.mem_distance}}</th>
+            <td>{{show.mem_discription}}</td>
       </tr>
     </thead>
   </table>
@@ -34,7 +35,7 @@ export default {
   },
   computed: {},
   ready: function () {
-    this.$http.get('http://localhost:5000/api/Runner').then(function (res) {
+    this.$http.get('http://192.168.2.130:10000/members/normal').then(function (res) {
       this.data = res.data
       console.log('load getquery')
     })
