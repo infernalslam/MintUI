@@ -1,7 +1,7 @@
 <template lang="html">
   <match></match>
   <br>
-  <button class="ui red basic button" @click="post()">Matching Name</button>
+  <button class="ui red basic button" @click="match()" v-bind:class="{ 'disable': !activeBtnMatch }" >Matching Name</button>
   <br><br>
 
   <div class="ui equal width center aligned padded grid">
@@ -10,7 +10,9 @@
         ผู้พิการ
         <table class="ui green table">
         <thead>
-          <tr><th>ชื่อนามสกุล</th>
+          <tr>
+          <th>id</th>
+          <th>ชื่อนามสกุล</th>
           <th>ผู้พิการ</th>
           <th>อายุ</th>
           <th>ระยะทาง</th>
@@ -18,6 +20,7 @@
       </thead>
         <tbody v-for="(key, show) in querydis">
           <tr v-bind:class="{ 'actives': active1 === $index && test1 }" @click="check1($index, show)">
+            <td>{{show.mem_id}}</td>
             <td>{{show.mem_name}} {{show.mem_surname}}</td>
             <td>{{show.mem_description}}</td>
             <td>{{show.mem_age}}</td>
@@ -38,6 +41,7 @@
       </thead>
         <tbody v-for="show in queryrun">
           <tr v-bind:class="{ 'actives': active2 === $index && test2}" @click="check2($index, show)">
+            <td>{{show.mem_id}}</td>
             <td>{{show.mem_name}} {{show.mem_surname}}</td>
             <td>{{show.mem_description}}</td>
             <td>{{show.mem_age}}</td>
@@ -64,7 +68,8 @@ export default {
       data1: '',
       data2: '',
       activeBtnMatch: false,
-      dataID: []
+      dataID1: '',
+      dataID2: ''
     }
   },
   computed: {},
@@ -81,32 +86,35 @@ export default {
     check1: function (index, show) {
       if (this.active1 === index) {
         this.test1 = !this.test1
-        this.dataID.splice(index, 1)
-        console.log(this.dataID)
+        this.dataID1 = ''
+        this.activeBtnMatch = false
+        console.log('ไม่เอา' + this.dataID1)
       } else {
         this.test1 = true
-        var data = {
-          disabled_id: show.mem_id
-        }
-        this.dataID.push(data)
-        console.log(this.dataID)
+        this.dataID1 = show.mem_id
+        this.activeBtnMatch = true
+        console.log('เอา' + this.dataID1)
       }
       this.active1 = index
     },
     check2: function (index, show) {
       if (this.active2 === index) {
         this.test2 = !this.test2
-        this.dataID.splice(index, 1)
-        console.log(this.dataID)
+        this.dataID2 = ''
+        this.activeBtnMatch = false
+        console.log('ไม่เอา' + this.dataID2)
       } else {
         this.test2 = true
-        var data = {
-          runner_id: show.mem_id
-        }
-        this.dataID.push(data)
-        console.log(this.dataID)
+        this.dataID2 = show.mem_id
+        console.log('เอา' + this.dataID2)
+        this.activeBtnMatch = true
       }
       this.active2 = index
+    },
+    match: function () {
+      // this.dataID1
+      // this.dataID2
+      console.log(this.dataID1, this.dataID2)
     }
   },
   components: {
@@ -119,7 +127,7 @@ export default {
 .actives {
   background-color: yellow;
 }
-/*.disable {
-
-}*/
+.disable {
+  pointer-events: none;
+}
 </style>
