@@ -1,37 +1,70 @@
 <template lang="html">
-  <br><br><br><br>
-  <table class="ui fixed single line celled table">
+  <br><br>
+  <div class="ui category search inverted segment">
+    <button class="ui inverted purple button">(คนพิการ)</button>
+    <button class="ui inverted green button">(อาสาสมัคร)</button>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Search ...">
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+  <table class="ui fixed single line  inverted table">
     <thead>
       <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>surname</th>
-        <th>tel</th>
-        <th>age</th>
-        <th>dis</th>
-        <th>des</th>
-        <th>type</th>
-        <th>pic</th>
-        <th>รายละเอียด</th>
-        <th>group</th>
-        <th>type</th>
-        <th>ลบ</th>
+        <th><center>id</th>
+        <th><center>name</th>
+        <th><center>surname</th>
+        <th><center>tel</th>
+        <th><center>age</th>
+        <th><center>dis</th>
+        <th><center>des</th>
+        <th><center>type</th>
+        <th><center>pic</th>
+        <th><center>รายละเอียด</th>
+        <th><center>group</th>
+        <th><center>type</th>
+        <th><center>ลบ</th>
       </tr>
     </thead>
     <thead v-for="show in data">
-      <tr><th>{{show.mem_id}}</th>
-      <td>{{show.mem_name}}</td>
-      <td>{{show.mem_surname}}</td>
-      <td>{{show.mem_gender}}</td>
-      <td>{{show.mem_age}}</th>
-      <td>{{show.mem_email}}</td>
-      <td>{{show.mem_tel}}</td>
-      <td>{{show.mem_distance}}</td>
-      <td>{{show.mem_pic}}</td>
-      <td>{{show.mem_discription}}</td>
-      <td>{{show.group_id}}</td>
-      <td>{{show.mem_type}}</td>
-      <td><i class="trash outline icon" v-on:click="del(show.mem_id, $index)"></i></td>
+      <tr><th><center>{{show.mem_id}}</th>
+      <td><center>{{show.mem_name}}</td>
+      <td><center>{{show.mem_surname}}</td>
+      <td><center>{{show.mem_gender}}</td>
+      <td><center>{{show.mem_age}}</th>
+      <td><center>{{show.mem_email}}</td>
+      <td><center>{{show.mem_tel}}</td>
+      <td><center>{{show.mem_distance}}</td>
+      <td><center>{{show.mem_pic}}</td>
+      <td><center>{{show.mem_discription}}</td>
+      <td><center>{{show.group_id}}</td>
+      <td><center>{{show.mem_type}}</td>
+      <td><center><i class="trash outline icon" v-on:click="del(show.mem_id, $index)"></i></td>
     </tr></thead>
 </table>
 </template>

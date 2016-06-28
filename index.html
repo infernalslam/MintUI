@@ -8,31 +8,27 @@
     <script src="./static/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/form.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.js"></script>
-    <add name="Access-Control-Allow-Origin" value="*" />
-    <add name="Access-Control-Allow-Headers" value="Origin, X-Requested-With, Content-Type, Accept" />
-    <add name="Access-Control-Allow-Methods" value="OPTIONS,GET,POST,PUT,DELETE" />
-
   </head>
   <body>
      <div id="app">
        <div class="ui container">
-         <div class="ui large top fixed hidden menu">
-          <div class="ui container">
-            <a class="active item" v-link="{ path: '/' }">รายชื่อคนสมัคร</a>
-            <a class="item" v-link="{ path: '/runner' }">กรอกข้อมูล</a>
-              <a class="item" v-link="{path: '/dismatch'}">จับคู่คนสมัคร</a>
-              <a class="item" v-link="{ path: '/check' }">ตรวจสอบสถานะ</a>
-              <div class="right menu">
-                <div class="item">
-                  <a class="ui primary button" v-link="{ path: '/register' }">ชำระเงิน</a>
-                </div>
+           <div class="ui top fixed hidden menu">
+            <div class="ui container">
+              <a class="active item" v-link="{ path: '/' }">รายชื่อคนสมัคร</a>
+              <a class="item" v-link="{ path: '/runner' }">กรอกข้อมูล</a>
+                <a class="item" v-link="{path: '/dismatch'}">จับคู่คนสมัคร</a>
+                <a class="item" v-link="{ path: '/check' }">ตรวจสอบสถานะ</a>
+                <div class="right menu">
+                  <div class="item">
+                    <a class="ui primary button" v-link="{ path: '/register' }">ชำระเงิน</a>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
        <div class="ui container">
         <router-view></router-view>
-      </div>
+      </div>  
      </div>
   </body>
 </html>
