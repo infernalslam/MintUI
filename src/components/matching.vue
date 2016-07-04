@@ -74,10 +74,10 @@ export default {
   },
   computed: {},
   ready: function () {
-    this.$http.get('http://192.168.2.130:10000/members/disabled').then(function (res) {
+    this.$http.get('http://192.168.100.113:10000/members/disabled').then(function (res) {
       this.querydis = res.data
     })
-    this.$http.get('http://192.168.2.130:10000/members/normal').then(function (res) {
+    this.$http.get('http://192.168.100.113:10000/members/normal').then(function (res) {
       this.queryrun = res.data
     })
   },
@@ -112,8 +112,6 @@ export default {
       this.active2 = index
     },
     match: function () {
-      // this.dataID1
-      // this.dataID2
       console.log(this.dataID1, this.dataID2)
     }
   },

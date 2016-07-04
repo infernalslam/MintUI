@@ -74,37 +74,39 @@ export default {
   attached: function () {},
   methods: {
     add: function (input) {
-      var setData = {
-        mem_name: input.name,
-        mem_surname: input.surname,
-        mem_gender: input.gender,
-        mem_age: input.age,
-        mem_email: input.email,
-        mem_tel: input.tel,
-        mem_date: input.date,
-        mem_distance: input.distance_runner,
-        mem_pic: '',
-        mem_discription: input.description,
-        group_id: 2,
-        mem_type: 'disabled',
-        mem_status: 'unactive'
-      }
       // var setData = {
-      //   mem_name: 'กมลภพ',
-      //   mem_surname: 'เเพงวังทอง',
-      //   mem_gender: 'm',
-      //   mem_age: '21',
-      //   mem_email: 'infernal-slam@gmail.com',
-      //   mem_tel: '029110020',
-      //   mem_date: '2016-06-06',
-      //   mem_distance: '4',
-      //   mem_pic: 'hyuhyhyhy',
-      //   mem_discription: 'so good',
-      //   group_id: 1,
+      //   mem_name: input.name,
+      //   mem_surname: input.surname,
+      //   mem_gender: input.gender,
+      //   mem_age: input.age,
+      //   mem_email: input.email,
+      //   mem_tel: input.tel,
+      //   mem_date: input.date,
+      //   mem_distance: input.distance_runner,
+      //   mem_pic: '',
+      //   mem_discription: input.description,
+      //   group_id: 2,
       //   mem_type: 'disabled',
-      //   mem_status: 'unactive'
+      //   mem_status: 'unactive',
+      //   mem_pay: 'null'
       // }
-      this.$http.post('http://192.168.2.130:10000/members', setData).then(function (res) {
+      var setData = {
+        mem_name: 'กมลภพ',
+        mem_surname: 'เเพงวังทอง',
+        mem_gender: 'm',
+        mem_age: '21',
+        mem_email: 'infernal-slam@gmail.com',
+        mem_tel: '029110020',
+        mem_date: '2016-06-06',
+        mem_distance: '4',
+        mem_pic: 'hyuhyhyhy',
+        mem_discription: 'so good',
+        group_id: 1,
+        mem_type: 'disabled',
+        mem_status: 'unactive',
+        mem_pay: 'unactive'
+      }
+      this.$http.post('http://192.168.100.113:10000/members', setData).then(function (res) {
         console.log(res)
       })
     }

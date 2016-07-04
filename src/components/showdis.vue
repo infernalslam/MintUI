@@ -16,7 +16,7 @@
           <tr>
           <th>{{show.mem_id}}</th>
           <td>{{show.mem_name}}</td>
-          <td>{{show.surname}}</td>
+          <td>{{show.mem_surname}}</td>
           <td>{{show.mem_tel}}</td>
           <td>{{show.mem_age}}</td>
           <td>{{show.mem_distance}}</th>
@@ -35,7 +35,7 @@ export default {
   },
   computed: {},
   ready: function () {
-    this.$http.get('http://192.168.2.130:10000/members/disabled').then(function (res) {
+    this.$http.get('http://192.168.100.113:10000/members/disabled').then(function (res) {
       this.data = res.data
       console.log('load getquery')
     })
