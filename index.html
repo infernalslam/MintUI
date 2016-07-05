@@ -14,7 +14,11 @@
        <div class="ui container">
            <div class="ui top fixed hidden menu">
             <div class="ui container">
-              <a class="active item" v-link="{ path: '/' }">รายชื่อคนสมัคร</a>
+              <div class="left menu">
+                 <img src="./static/logo.png" height="40px"/>
+              </div>
+              <a class="active item" v-link="{ path: '/' }">สร้าง Event</a>
+              <a class="item" v-link="{ path: '/show' }">รายชื่อคนสมัคร</a>
               <a class="item" v-link="{ path: '/runner' }">กรอกข้อมูล</a>
                 <a class="item" v-link="{path: '/dismatch'}">จับคู่คนสมัคร</a>
                 <a class="item" v-link="{ path: '/check' }">ตรวจสอบสถานะ</a>
@@ -28,7 +32,7 @@
         </div>
        <div class="ui container">
         <router-view></router-view>
-      </div>  
+      </div>
      </div>
   </body>
 </html>

@@ -15,6 +15,12 @@
         <div class='ui container'>
           <form class='ui form'>
             <div class='field'>
+              <label>โครงการ</label>
+              <select class='ui fluid dropdown' v-model='input.event'>
+                <option v-for= "show in data" v-model="show.event_name">{{show.event_name}}</option>
+              </select>
+            </div>
+            <div class='field'>
               <label>gender</label>
               <select class='ui fluid dropdown' v-model='input.gender'>
                 <option value='m'>male</option>
@@ -66,11 +72,16 @@ import Insert from './insert.vue'
 export default {
   data: function () {
     return {
-      input: {}
+      input: {},
+      data: []
     }
   },
   computed: {},
-  ready: function () {},
+  ready: function () {
+    this.$http.get('http://192.168.100.113:10000/event').then(function (res) {
+      this.data = res.data
+    })
+  },
   attached: function () {},
   methods: {
     add: function (input) {
@@ -91,10 +102,10 @@ export default {
       //   mem_pay: 'null'
       // }
       var setData = {
-        mem_name: 'กมลภพ',
-        mem_surname: 'เเพงวังทอง',
+        mem_name: 'สมหญิง',
+        mem_surname: 'ไม่ดีใจ',
         mem_gender: 'm',
-        mem_age: '21',
+        mem_age: '12',
         mem_email: 'infernal-slam@gmail.com',
         mem_tel: '029110020',
         mem_date: '2016-06-06',

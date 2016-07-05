@@ -1,4 +1,5 @@
-<template lang="html">
+ .
+ <template lang="html">
   <match></match>
   <br>
   <button class="ui red basic button" @click="match()" v-bind:class="{ 'disable': !activeBtnMatch }" >Matching Name</button>
@@ -11,20 +12,18 @@
         <table class="ui green table">
         <thead>
           <tr>
-          <th>id</th>
           <th>ชื่อนามสกุล</th>
-          <th>ผู้พิการ</th>
           <th>อายุ</th>
           <th>ระยะทาง</th>
+          <th>ผู้พิการ</th>
         </tr>
       </thead>
-        <tbody v-for="(key, show) in querydis">
+        <tbody v-for="(key, show) in querydis | filterBy 'unactive' in 'mem_status' ">
           <tr v-bind:class="{ 'actives': active1 === $index && test1 }" @click="check1($index, show)">
-            <td>{{show.mem_id}}</td>
-            <td>{{show.mem_name}} {{show.mem_surname}}</td>
-            <td>{{show.mem_description}}</td>
+            <td>{{show.mem_name}}</td>
+            <td>{{show.mem_surname}}</td>
             <td>{{show.mem_age}}</td>
-            <td>{{show.mem_distance}}</td>
+            <td>{{show.mem_type}}</td>
           </tr>
         </tbody>
       </table>
@@ -39,7 +38,7 @@
           <th>ระยะทาง</th>
         </tr>
       </thead>
-        <tbody v-for="show in queryrun">
+        <tbody v-for="show in queryrun | filterBy 'unactive' in 'mem_status'">
           <tr v-bind:class="{ 'actives': active2 === $index && test2}" @click="check2($index, show)">
             <td>{{show.mem_id}}</td>
             <td>{{show.mem_name}} {{show.mem_surname}}</td>
@@ -112,7 +111,26 @@ export default {
       this.active2 = index
     },
     match: function () {
-      console.log(this.dataID1, this.dataID2)
+      // function send (parameter)
+      // console.log(this.dataID1, this.dataID2)
+      var setData = {
+        mem_id: this.dataID1,
+        join_event: this.dataID2,
+        event_id: 1
+      }
+      console.log(setData)
+      this.$http.post('http://192.168.100.113:10000/request', setData).then(function (res) {
+        console.log(res)
+        this.get()
+      })
+    },
+    get: function () {
+      this.$http.get('http://192.168.100.113:10000/members/normal').then(function (res) {
+        this.queryrun = res.data
+      })
+      this.$http.get('http://192.168.100.113:10000/members/disabled').then(function (res) {
+        this.querydis = res.data
+      })
     }
   },
   components: {
