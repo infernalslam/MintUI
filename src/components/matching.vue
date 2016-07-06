@@ -8,7 +8,7 @@
   <div class="ui equal width center aligned padded grid">
     <div class="row">
       <div class="column">
-        ผู้พิการ
+        <h3>ผู้พิการ</h3>
         <table class="ui green table">
         <thead>
           <tr>
@@ -29,7 +29,7 @@
       </table>
       </div>
       <div class="column">
-        อาสาสมัคร
+        <h3>อาสาสมัคร</h3>
         <table class="ui blue table">
         <thead>
           <tr><th>ชื่อนามสกุล</th>

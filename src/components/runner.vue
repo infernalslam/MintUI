@@ -1,6 +1,5 @@
 <template lang='html'>
   <br><br>
-  <!-- <insert></insert> -->
   <h4 class='ui dividing header'>หน้ากรอกข้อมูล(อาสาสมัคร)</h4>
 
   <div class="ui grid">
@@ -16,52 +15,94 @@
         <div class='ui container'>
           <form class='ui form'>
             <div class='field'>
-              <label>โครงการ</label>
+              <label>เข้าร่วมโครงการ &nbsp; (โครงการ)</label>
+              <hr> <br>
               <select class='ui fluid dropdown' v-model='input.event'>
-                <option v-for= "show in data" v-model="show.event_name">{{show.event_name}}</option>
+                <option v-for= "show in data" v-model="show.event_name"
+                selected="selected">{{show.event_name}}</option>
               </select>
             </div>
+
+
+
             <div class='field'>
-              <label>gender</label>
+              <!-- <label>ข้อมูลส่วนตัว &nbsp; (Personal)</label>
+              <hr> <br>
+              <label>เพศ</label>
               <select class='ui fluid dropdown' v-model='input.gender'>
                 <option value='m'>male</option>
                 <option value='f'>female</option>
-              </select>
+              </select> -->
+              <label>ข้อมูลส่วนตัว &nbsp; (Personal)</label>
+              <hr> <br>
+              <div class="inline fields">
+                  <label>เพศ</label>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" name="frequency" checked="checked" v-model="input.gender">
+                      <label>ผู้ชาย</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" name="frequency" v-model="input.gender">
+                      <label>ผู้หญิง</label>
+                    </div>
+                  </div>
+                </div>
             </div>
+
+
+
+
+
             <div class='field'>
-              <label>First Name</label>
-              <input type='text'placeholder='First Name' v-model='input.name'>
+              <label>ชื่อ</label>
+              <input type='text'placeholder='ชื่อ' v-model='input.name'>
             </div>
+
+
+
+
             <div class='field'>
-              <label>Last Name</label>
-              <input type='text' placeholder='Last Name' v-model='input.surname'>
+              <label>นามสกุล</label>
+              <input type='text' placeholder='นามสกุล' v-model='input.surname'>
             </div>
+
+
             <div class='field'>
-              <label>Age</label>
-              <input type='number'placeholder='Age' v-model='input.age'>
+              <label>อายุ</label>
+              <input type='number'placeholder='อายุผู้สมัคร' v-model='input.age'>
             </div>
+
+
             <div class='field'>
-              <label>email</label>
+              <label>E-mail</label>
               <input type='email'placeholder='email' v-model='input.email'>
             </div>
+
             <div class='field'>
-              <label>tel</label>
-              <input type='text'placeholder='tel' v-model='input.tel'>
+              <label>เบอร์</label>
+              <input type='text'placeholder='เบอร์ที่สะดวก' v-model='input.tel'>
             </div>
+
             <div class='field'>
-              <label>Date</label>
-              <input type='date'placeholder='tel' v-model='input.date'>
+              <label>วันที่สมัคร</label>
+              <input type='date'placeholder='วันที่สมัคร' v-model='input.date'>
             </div>
+
+
             <div class='field'>
-              <label>distance_runner</label>
-              <input type='number'placeholder='distance_runner' v-model='input.distance_runner'>
+              <label>ระยะทาง</label>
+              <input type='number'placeholder='ระยะทาง' v-model='input.distance_runner'>
             </div>
+
               <div class='ui form'>
                 <div class='field'>
-                  <label>description</label>
-                  <textarea v-model='input.description'></textarea>
+                  <label>โปรดระบุหากมีความสำคัญที่ผู้จัดงานต้องทราบ</label>
+                  <textarea v-model='input.description'placeholder="โปรดระบุหากมีความสำคัญที่ผู้จัดงานต้องทราบ"></textarea>
                 </div>
-            <button class='ui button' type='submit' v-on:click='add(input)'>Submit</button>
+            <button class='ui blue button' type='submit' v-on:click='add(input)'>สมัครเข้าร่วมวิ่ง</button>
           </form>
       </div>
     </div>
@@ -130,4 +171,13 @@ export default {
 </script>
 
 <style lang='css'>
+.ui.segment {
+  position: relative;
+  background: rgba(250, 160, 30, 0.91) !important;
+  box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+  margin: 1rem 0;
+  padding: 1em;
+  border-radius: .28571429rem;
+  border: 1px solid rgba(34,36,38,.15);
+}
 </style>

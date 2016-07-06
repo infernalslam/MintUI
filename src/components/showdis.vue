@@ -1,15 +1,14 @@
 <template lang="html">
-  <br>
   <table class="ui fixed single line celled table">
     <thead>
       <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>surname</th>
-        <th>tel</th>
-        <th>age</th>
-        <th>dis</th>
-        <th>des</th>
+        <th><center>seq</th>
+        <th><center>ชื่อ</th>
+        <th><center>นามสกุล</th>
+        <th><center>เบอร์</th>
+        <th><center>อายุ</th>
+        <th><center>ระยะทาง</th>
+        <th><center>รายละเอียด</th>
       </tr>
       <tr>
         <thead v-for="show in data">

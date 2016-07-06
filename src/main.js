@@ -11,6 +11,8 @@ import Dismatch from './components/dismatch'
 import Matching from './components/matching'
 import Check from './components/check'
 import Error from './components/error'
+import '../node_modules/semantic-ui/dist/semantic.min.css'
+import 'semantic'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 var App = Vue.extend({})
