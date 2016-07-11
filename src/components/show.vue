@@ -1,5 +1,5 @@
 <template lang="html">
-  <br><br>
+  <br><br><br>
   <div class="ui category search  segment heads">
     <button class="ui  blue button">(คนพิการ)</button>
     <button class="ui  black button">(อาสาสมัคร)</button>
@@ -33,44 +33,56 @@
     </div>
     <div class="results"></div>
   </div>
-  <table class="ui fixed single line   table">
+
+  <table class="ui blue fixed single line table" class="scroll">
     <thead>
       <tr>
-        <th><center>seq</th>
         <th><center>ชื่อ</th>
         <th><center>นามสกุล</th>
+        <th><center>เพศ</th>
         <th><center>เบอร์</th>
         <th><center>อายุ</th>
-        <th><center>ระยะทาง</th>
+        <th><center>สถานะ</th>
+        <!-- <th><center>ระยะทาง</th>
         <th><center>รายละเอียด</th>
         <th><center>ประเภท</th>
-        <th><center>รูปภาพ</th>
+        <th><center>รูปภาพ</th> -->
         <!-- <th><center>รายละเอียด</th> -->
-        <th><center>จับคู่</th>
-        <th><center>จ่ายเงิน</th>
-        <th><center>ลบ</th>
+        <!-- <th><center>จับคู่</th> -->
+        <!-- <th><center>จ่ายเงิน</th> -->
+        <th><center>แก้ไข</th>
       </tr>
     </thead>
-    <thead v-for="show in data">
-      <tr><th><center>{{show.mem_id}}</th>
+    <tbody v-for="show in data">
+      <tr>
+      <!-- <th><center>{{show.mem_id}}</th> -->
       <td><center>{{show.mem_name}}</td>
       <td><center>{{show.mem_surname}}</td>
       <td><center>{{show.mem_gender}}</td>
+      <td><center>{{show.mem_tel}}</td>
       <td><center>{{show.mem_age}}</th>
       <td><center>{{show.mem_email}}</td>
-      <td><center>{{show.mem_tel}}</td>
-      <td><center>{{show.mem_distance}}</td>
-      <td><center>{{show.mem_pic}}</td>
+      <!-- <td><center>{{show.mem_tel}}</td> -->
+      <!-- <td><center>{{show.mem_distance}}</td> -->
+      <!-- <td><center>{{show.mem_pic}}</td> -->
       <!-- <td><center>{{show.mem_discription}}</td> -->
-      <td><center>{{show.group_id}}</td>
-      <td><center>{{show.mem_type}}</td>
+      <!-- <td><center>{{show.group_id}}</td>
+      <td><center>{{show.mem_type}}</td> -->
       <td><center><i class="trash outline icon" v-on:click="del(show.mem_id, $index)"></i></td>
-    </tr></thead>
+    </tr></tbody>
 </table>
 </template>
 
 <script>
+import store from '../vuex/store.js'
+import {stateAction} from '../vuex/actions.js'
 export default {
+  store,
+  vuex: {
+    actions: {
+      setPage: stateAction
+    }
+  },
   data: function () {
     return {
       data: []
@@ -82,6 +94,7 @@ export default {
       console.log(res.data)
       this.data = res.data
     })
+    this.setPage(2)
   },
   attached: function () {},
   methods: {
@@ -112,5 +125,11 @@ export default {
     padding: 1em;
     border-radius: .28571429rem;
     border: 1px solid rgba(34,36,38,.15);
+}
+.scroll {
+    background-color: #00FFFF;
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
 }
 </style>

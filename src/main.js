@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 var VueResource = require('vue-resource')
+import Index from './components/index'
 import Event from './components/event'
 import Show from './components/show'
 import Insert from './components/insert'
@@ -15,10 +16,13 @@ import '../node_modules/semantic-ui/dist/semantic.min.css'
 import 'semantic'
 Vue.use(VueRouter)
 Vue.use(VueResource)
-var App = Vue.extend({})
+// var App = Vue.extend({})
 var router = new VueRouter()
 router.map({
   '/': {
+    component: Event
+  },
+  '/event': {
     component: Event
   },
   '/show': {
@@ -49,4 +53,4 @@ router.map({
     component: Error
   }
 })
-router.start(App, '#app')
+router.start(Index, '#app')

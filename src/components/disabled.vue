@@ -13,11 +13,11 @@
     <div class="twelve wide stretched column">
       <div class="ui segment">
         <div class='ui container'>
-          <form class='ui form'>
+          <div class='ui form'>
             <div class='field'>
               <label>โครงการ</label>
               <select class='ui fluid dropdown' v-model='input.event'>
-                <option v-for= "show in data" v-model="show.event_name">{{show.event_name}}</option>
+                <option v-for= "show in data" :value="show.event_id">{{show.event_name}}</option>
               </select>
             </div>
             <div class='field'>
@@ -81,6 +81,7 @@ export default {
     this.$http.get('http://192.168.100.113:10000/event').then(function (res) {
       this.data = res.data
     })
+    this.setPage(4)
   },
   attached: function () {},
   methods: {
@@ -102,20 +103,17 @@ export default {
       //   mem_pay: 'null'
       // }
       var setData = {
-        mem_name: 'สมหญิง',
-        mem_surname: 'ไม่ดีใจ',
+        mem_name: 'นางสงกรานต์',
+        mem_surname: 'ทำงานเเล้วทน',
         mem_gender: 'm',
-        mem_age: '12',
-        mem_email: 'infernal-slam@gmail.com',
-        mem_tel: '029110020',
-        mem_date: '2016-06-06',
-        mem_distance: '4',
-        mem_pic: 'hyuhyhyhy',
-        mem_discription: 'so good',
-        group_id: 1,
+        mem_age: '56',
+        mem_email: 'vo@gmail.com',
+        mem_tel: '041234564',
+        mem_date: '2016-06-05T17:00:00.000Z',
+        mem_pic: '',
+        mem_discription: 'พิการ',
         mem_type: 'disabled',
-        mem_status: 'unactive',
-        mem_pay: 'unactive'
+        event_id: input.event
       }
       this.$http.post('http://192.168.100.113:10000/members', setData).then(function (res) {
         console.log(res)

@@ -11,7 +11,7 @@
         <th><center>รายละเอียด</th>
       </tr>
       <tr>
-        <thead v-for="show in data">
+        <thead v-for="show in data | filterBy 'unactive' in 'mem_status'">
           <tr>
             <th>{{show.mem_id}}</th>
             <td>{{show.mem_name}}</td>

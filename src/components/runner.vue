@@ -13,12 +13,12 @@
     <div class="twelve wide stretched column">
       <div class="ui segment">
         <div class='ui container'>
-          <form class='ui form'>
+          <div class='ui form'>
             <div class='field'>
               <label>เข้าร่วมโครงการ &nbsp; (โครงการ)</label>
               <hr> <br>
               <select class='ui fluid dropdown' v-model='input.event'>
-                <option v-for= "show in data" v-model="show.event_name"
+                <option v-for= "(key, show) in data" :value="show.event_id"
                 selected="selected">{{show.event_name}}</option>
               </select>
             </div>
@@ -111,7 +111,15 @@
 
 <script>
 import Insert from './insert.vue'
+import store from '../vuex/store.js'
+import {stateAction} from '../vuex/actions.js'
 export default {
+  store,
+  vuex: {
+    actions: {
+      setPage: stateAction
+    }
+  },
   data: function () {
     return {
       input: {},
@@ -123,10 +131,12 @@ export default {
     this.$http.get('http://192.168.100.113:10000/event').then(function (res) {
       this.data = res.data
     })
+    this.setPage(3)
   },
   attached: function () {},
   methods: {
     add: function (input) {
+      console.log('test')
       // var setData = {
       //   mem_name: input.name,
       //   mem_surname: input.surname,
@@ -143,23 +153,22 @@ export default {
       //   mem_status: 'unactive',
       //   mem_pay: 'null'
       // }
+      // console.log(input.event)
       var setData = {
-        mem_name: 'ชุมทางเสียงทอง',
-        mem_surname: 'เเจ่มเเจ้งธนาคาร',
+        mem_name: 'สนุกจุง',
+        mem_surname: 'ที่ทำงาน',
         mem_gender: 'm',
         mem_age: '21',
         mem_email: 'mint-sly@hotmail.com',
         mem_tel: '029110020',
-        mem_date: '2016-06-06',
-        mem_distance: '4',
+        mem_date: '2016-06-05T17:00:00.000Z',
         mem_pic: 'hyuhyhyhy',
         mem_discription: 'so good',
-        group_id: 1,
         mem_type: 'normal',
-        mem_status: 'unactive',
-        mem_pay: 'unactive'
+        event_id: input.event
       }
       this.$http.post('http://192.168.100.113:10000/members', setData).then(function (res) {
+        console.log('insert data')
         console.log(res)
       })
     }

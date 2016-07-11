@@ -12,18 +12,18 @@
         <table class="ui green table">
         <thead>
           <tr>
-          <th>ชื่อนามสกุล</th>
-          <th>อายุ</th>
-          <th>ระยะทาง</th>
-          <th>ผู้พิการ</th>
+            <tr><th>ชื่อ</th>
+            <th>นามสกุล</th>
+            <th>อายุ</th>
+            <th>ระยะทาง</th>
         </tr>
       </thead>
-        <tbody v-for="(key, show) in querydis | filterBy 'unactive' in 'mem_status' ">
+        <tbody v-for="(key, show) in querydis | filterBy 'unactive' in 'mem_status' | filterBy 'active' in 'mem_pay' ">
           <tr v-bind:class="{ 'actives': active1 === $index && test1 }" @click="check1($index, show)">
             <td>{{show.mem_name}}</td>
             <td>{{show.mem_surname}}</td>
             <td>{{show.mem_age}}</td>
-            <td>{{show.mem_type}}</td>
+            <td>{{show.mem_distance}}</td>
           </tr>
         </tbody>
       </table>
@@ -32,17 +32,17 @@
         <h3>อาสาสมัคร</h3>
         <table class="ui blue table">
         <thead>
-          <tr><th>ชื่อนามสกุล</th>
-          <th>ผู้พิการ</th>
+          <tr><th>ชื่อ</th>
+          <th>นามสกุล</th>
           <th>อายุ</th>
           <th>ระยะทาง</th>
         </tr>
       </thead>
-        <tbody v-for="show in queryrun | filterBy 'unactive' in 'mem_status'">
+        <tbody v-for="show in queryrun | filterBy 'unactive' in 'mem_status' | filterBy 'active' in 'mem_pay'">
           <tr v-bind:class="{ 'actives': active2 === $index && test2}" @click="check2($index, show)">
-            <td>{{show.mem_id}}</td>
-            <td>{{show.mem_name}} {{show.mem_surname}}</td>
-            <td>{{show.mem_description}}</td>
+            <!-- <td>{{show.mem_id}}</td> -->
+            <td>{{show.mem_name}}</td>
+            <td>{{show.mem_surname}}</td>
             <td>{{show.mem_age}}</td>
             <td>{{show.mem_distance}}</td>
           </tr>
