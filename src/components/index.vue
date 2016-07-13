@@ -6,7 +6,7 @@
            <div class="left menu">
               <img src="../../static/logo.png" height="40px"/>
            </div>
-           <a class="item" v-link="{ path: '/event' }" :class="{'active': state === 1}">จัดงาน</a>
+           <a class="item" v-link="{ path: '/event' }" :class="{'active': state === 1}">จัดงาน/การเเข่งขัน</a>
            <a class="item" v-link="{ path: '/show' }" :class="{'active': state === 2}">รายชื่อคนสมัคร</a>
            <a class="item" v-link="{ path: '/runner' }" :class="{'active': state === 3}">แก้ไขข้อมูล</a>
              <a class="item" v-link="{path: '/dismatch'}" :class="{'active': state === 4}">จับคู่คนสมัคร</a>

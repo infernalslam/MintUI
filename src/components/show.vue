@@ -43,31 +43,17 @@
         <th><center>เบอร์</th>
         <th><center>อายุ</th>
         <th><center>สถานะ</th>
-        <!-- <th><center>ระยะทาง</th>
-        <th><center>รายละเอียด</th>
-        <th><center>ประเภท</th>
-        <th><center>รูปภาพ</th> -->
-        <!-- <th><center>รายละเอียด</th> -->
-        <!-- <th><center>จับคู่</th> -->
-        <!-- <th><center>จ่ายเงิน</th> -->
         <th><center>แก้ไข</th>
       </tr>
     </thead>
     <tbody v-for="show in data">
       <tr>
-      <!-- <th><center>{{show.mem_id}}</th> -->
       <td><center>{{show.mem_name}}</td>
       <td><center>{{show.mem_surname}}</td>
-      <td><center>{{show.mem_gender}}</td>
+      <td><center>{{gender(show.mem_gender)}}</td>
       <td><center>{{show.mem_tel}}</td>
       <td><center>{{show.mem_age}}</th>
       <td><center>{{show.mem_email}}</td>
-      <!-- <td><center>{{show.mem_tel}}</td> -->
-      <!-- <td><center>{{show.mem_distance}}</td> -->
-      <!-- <td><center>{{show.mem_pic}}</td> -->
-      <!-- <td><center>{{show.mem_discription}}</td> -->
-      <!-- <td><center>{{show.group_id}}</td>
-      <td><center>{{show.mem_type}}</td> -->
       <td><center><i class="trash outline icon" v-on:click="del(show.mem_id, $index)"></i></td>
     </tr></tbody>
 </table>
@@ -110,6 +96,11 @@ export default {
         console.log(res)
         this.data = res.data
       })
+    },
+    gender: function (data) {
+      if (data === 'm') {
+        return 'ชาย'
+      } else return 'หญิง'
     }
   },
   components: {}

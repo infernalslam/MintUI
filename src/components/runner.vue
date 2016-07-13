@@ -136,41 +136,14 @@ export default {
   attached: function () {},
   methods: {
     add: function (input) {
-      console.log('test')
-      // var setData = {
-      //   mem_name: input.name,
-      //   mem_surname: input.surname,
-      //   mem_gender: input.gender,
-      //   mem_age: input.age,
-      //   mem_email: input.email,
-      //   mem_tel: input.tel,
-      //   mem_date: input.date,
-      //   mem_distance: input.distance_runner,
-      //   mem_pic: '',
-      //   mem_discription: input.description,
-      //   group_id: 1,
-      //   mem_type: 'normal',
-      //   mem_status: 'unactive',
-      //   mem_pay: 'null'
-      // }
-      // console.log(input.event)
-      var setData = {
-        mem_name: 'สนุกจุง',
-        mem_surname: 'ที่ทำงาน',
-        mem_gender: 'm',
-        mem_age: '21',
-        mem_email: 'mint-sly@hotmail.com',
-        mem_tel: '029110020',
-        mem_date: '2016-06-05T17:00:00.000Z',
-        mem_pic: 'hyuhyhyhy',
-        mem_discription: 'so good',
-        mem_type: 'normal',
-        event_id: input.event
+      console.log('show obj' + require('../testdata/disabled.js'))
+      var setData = require('../testdata/members.js')
+      // console.log(setData[0])
+      for (var i = 0; i <= setData.length; i++) {
+        this.$http.post('http://192.168.100.113:10000/members', setData[i]).then(function (res) {
+          console.log('count:' + i)
+        })
       }
-      this.$http.post('http://192.168.100.113:10000/members', setData).then(function (res) {
-        console.log('insert data')
-        console.log(res)
-      })
     }
   },
   components: {
